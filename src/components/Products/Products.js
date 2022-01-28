@@ -13,11 +13,6 @@ import ramImg from '../../assets/images/ram.png';
 
 const Products = () => {
 
-    // font-awsome icons
-    const angleRight = <FontAwesomeIcon icon={faAngleRight} />
-    const angleLeft = <FontAwesomeIcon icon={faAngleLeft} />
-    const creditCard = <FontAwesomeIcon icon={faCreditCard} />
-
 
     return (
         <div className='bg-[#f4f4f4] rounded-sm p-3 flex flex-col justify-between'>
@@ -65,14 +60,14 @@ const Products = () => {
 
             <div className='grid grid-cols-[1fr,1fr,1fr] text-center text-white'>
                 <div className='bg-[#84a8cd] hover:bg-[#75abe3] cursor-pointer p-1'>
-                    <span>{angleLeft}</span>
+                    <FontAwesomeIcon icon={faAngleLeft} />
                 </div>
                 <div className='bg-[#3673b1] p-1'>
-                    <span className='mr-1'>{creditCard}</span>
+                    <FontAwesomeIcon className='mr-1' icon={faCreditCard} />
                     <span>Sell Gift Card</span>
                 </div>
                 <div className='bg-[#84a8cd] hover:bg-[#75abe3] cursor-pointer p-1'>
-                    <span>{angleRight}</span>
+                    <FontAwesomeIcon icon={faAngleRight} />
                 </div>
             </div>
 
