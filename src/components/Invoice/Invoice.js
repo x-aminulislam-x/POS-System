@@ -1,15 +1,55 @@
-import { faEdit, faMoneyBillAlt } from '@fortawesome/free-regular-svg-icons';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEye, faMoneyBillAlt } from '@fortawesome/free-regular-svg-icons';
+import { faPencilAlt, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import './Invoice.css';
+
 
 const Invoice = () => {
 
-
     return (
         <div className='bg-[#f4f4f4] flex flex-col justify-between rounded-sm p-3'>
-            <div>
-                Walk in Customer
+            <div className='grid'>
+                <div className='flex justify-between border border-[#bdb8b8]'>
+                    <div className='w-4/5'>
+                        <select name="customer-option flex justify-between pr-2" id="" style={{ width: '100%' }}>
+                            <option value="">Walk-in Customer</option>
+                            <option value="">Walk-in Customer</option>
+                            <option value="">Walk-in Customer</option>
+                        </select>
+                    </div>
+                    <div className='w-1/5 text-[#326aa0] flex justify-around items-center'>
+                        <span className='border-l border-[#bdb8b8] px-1 cursor-pointer'>
+                            <FontAwesomeIcon className='' icon={faPencilAlt} />
+                        </span>
+                        <span className='border-x border-[#bdb8b8] px-1 cursor-pointer'>
+                            <FontAwesomeIcon className='' icon={faEye} />
+                        </span>
+                        <span className='px-1 cursor-pointer'>
+                            <FontAwesomeIcon className='' icon={faPlusCircle} />
+                        </span>
+                    </div>
+                </div>
+                <div className='border border-[#bdb8b8] mt-1'>
+                    <div className='w-full'>
+                        <select name="customer-option flex justify-between" id="" style={{ width: '100%' }}>
+                            <option value="">Walk-in Customer</option>
+                            <option value="">Walk-in Customer</option>
+                            <option value="">Walk-in Customer</option>
+                        </select>
+                    </div>
+                </div>
+                <div className='flex border border-[#bdb8b8] mt-1'>
+                    <div className='' style={{ width: '94.4%' }}>
+                        <input name="customer-input flex justify-between" id="" style={{ width: '100%', outlineColor: '#00a4ff', borderRadius: '0px' }} />
+                    </div>
+                    <div className='text-[#326aa0] flex justify-around items-center border-l border-[#bdb8b8]' style={{ width: '6.6%' }}>
+                        <span className='px-1 cursor-pointer'>
+                            <FontAwesomeIcon className='' icon={faPlusCircle} />
+                        </span>
+                    </div>
+                </div>
+                <div></div>
             </div>
             <div>
                 <div className='grid grid-cols-[1fr,1fr] py-1 px-2 border-b border-t-2 border-[#bdb8b8]'>
