@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteProduct } from '../../redux/actions/addedProductsActions';
 
-const Test = ({ product, index }) => {
+const AddedProducts = ({ product, index, setTotal, total }) => {
 
     const [quantity, setQuantity] = useState(1);
 
@@ -28,12 +28,6 @@ const Test = ({ product, index }) => {
             </td>
             <td>
                 {
-
-                    // if(product.id == index + 1){
-                    //     product.price * quantity
-                    // }
-                    // (product.id == index + 1) ? product.price * quantity : product.price
-
                     product.price * quantity
                 }
             </td>
@@ -44,4 +38,4 @@ const Test = ({ product, index }) => {
     );
 };
 
-export default Test;
+export default AddedProducts;

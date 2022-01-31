@@ -1,13 +1,15 @@
 import { faEdit, faEye, faMoneyBillAlt, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faPencilAlt, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import AddedProducts from './AddedProducts';
 import './Invoice.css';
-import Test from './test';
 
 
 const Invoice = () => {
+
+    const [total, setTotal] = useState(0);
 
     // useing redux hook to access the state
     const addedProducts = useSelector(state => state.addedProducts.invoiceProducts);
@@ -83,7 +85,7 @@ const Invoice = () => {
                             {
                                 // added product array is maping to make a new row if any new product is added to the invoice
                                 addedProducts.length === 0 ? <tr><span className='text-center'>No Product is Added</span></tr> : addedProducts.map((product, index) => (
-                                    <Test product={product} index={index}></Test>
+                                    <AddedProducts product={product} index={index} setTotal={setTotal} total={total}></AddedProducts>
                                 ))
                             }
 
