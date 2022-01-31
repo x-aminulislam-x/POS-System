@@ -2,7 +2,8 @@ import { faEdit, faEye, faMoneyBillAlt, faTrashAlt } from '@fortawesome/free-reg
 import { faComment, faPencilAlt, faPlusCircle, faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteProduct } from '../../redux/actions/addedProductsActions';
 import './Invoice.css';
 
 
@@ -10,6 +11,8 @@ const Invoice = () => {
 
     // useing redux hook to access the state
     const addedProducts = useSelector(state => state.addedProducts.invoiceProducts);
+
+    const dispatch = useDispatch();
 
     return (
         // outer div
@@ -98,7 +101,7 @@ const Invoice = () => {
                                             {product.price}
                                         </td>
                                         <td>
-                                            <FontAwesomeIcon className='cursor-pointer' icon={faTimes} />
+                                            <FontAwesomeIcon onClick={() => dispatch(deleteProduct(product.id))} className='cursor-pointer' icon={faTimes} />
                                         </td>
                                     </tr>
                                 ))

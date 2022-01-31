@@ -1,4 +1,4 @@
-import { ADD_TO_INVOICE } from "../actions/addedProductsActions";
+import { ADD_TO_INVOICE, DELETE_PRODUCT } from "../actions/addedProductsActions";
 
 const initailState = {
     invoiceProducts: []
@@ -15,6 +15,14 @@ const addedProductsReducers = (state = initailState, { type, payload }) => {
                 ...state,
                 invoiceProducts: tempArray
             };
+        case DELETE_PRODUCT:
+            const arraytemporary = [...invoiceProducts];
+            const newArray = arraytemporary.filter(product => product.id !== payload)
+            console.log(arraytemporary);
+            return {
+                ...state,
+                invoiceProducts: newArray
+            }
         default: return state;
     }
 }
