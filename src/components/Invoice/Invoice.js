@@ -1,10 +1,10 @@
 import { faEdit, faEye, faMoneyBillAlt, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faComment, faPencilAlt, faPlusCircle, faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProduct } from '../../redux/actions/addedProductsActions';
 import './Invoice.css';
+import Test from './test';
 
 
 const Invoice = () => {
@@ -82,28 +82,8 @@ const Invoice = () => {
 
                             {
                                 // added product array is maping to make a new row if any new product is added to the invoice
-                                addedProducts.length === 0 ? <tr><span className='text-center'>No Product is Added</span></tr> : addedProducts.map(product => (
-                                    <tr key={product.id}>
-                                        <td>
-                                            <span>{product.name}</span>
-                                            <div>
-                                                <FontAwesomeIcon className='' icon={faComment} />
-                                                <FontAwesomeIcon className='' icon={faEdit} />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            {product.price}
-                                        </td>
-                                        <td>
-                                            <input type="number" defaultValue='1' className='quantity-input w-16 text-center' />
-                                        </td>
-                                        <td>
-                                            {product.price}
-                                        </td>
-                                        <td>
-                                            <FontAwesomeIcon onClick={() => dispatch(deleteProduct(product.id))} className='cursor-pointer' icon={faTimes} />
-                                        </td>
-                                    </tr>
+                                addedProducts.length === 0 ? <tr><span className='text-center'>No Product is Added</span></tr> : addedProducts.map((product, index) => (
+                                    <Test product={product} index={index}></Test>
                                 ))
                             }
 
@@ -121,7 +101,7 @@ const Invoice = () => {
                 <div className='grid grid-cols-[1fr,1fr] py-1 px-2 border-b border-t-2 border-[#bdb8b8]'>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Items</span>
-                        <span className='pr-3 font-bold'>7(7.00)</span>
+                        <span className='pr-3 font-bold'>{addedProducts.length}({addedProducts.length}.00)</span>
                     </div>
                     <div className='flex justify-between'>
                         <span className='font-medium'>Total</span>
